@@ -97,10 +97,11 @@
 <meta content='xxxxx' name='twitter:site'/>
 <meta content='xxxxx' name='twitter:creator'/>
  <meta content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1' name='viewport'/>
-<link href='http://fonts.googleapis.com/css?family=Bad+Script|Raleway:400,500,600,700,300|Lora:400' rel='stylesheet' type='text/css'/>	
-<link href='http://fonts.googleapis.com/css?family=Montserrat%3A400%2C700&amp;ver=4.2.4' id='default_headings_font-css' media='all' rel='stylesheet' type='text/css'/>
-<link href='http://fonts.googleapis.com/css?family=Domine%3A400%2C700&amp;ver=4.2.4' id='default_para_font-css' media='all' rel='stylesheet' type='text/css'/>
-<link href='http://fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C400italic&amp;ver=4.2.4' id='default_body_font-css' media='all' rel='stylesheet' type='text/css'/>   
+<link href='https://fonts.googleapis.com/css?family=Bad+Script|Raleway:400,500,600,700,300|Lora:400' rel='stylesheet' type='text/css'/>
+<link href='https://fonts.googleapis.com/css?family=Montserrat%3A400%2C700&amp;ver=4.2.4' id='default_headings_font-css' media='all' rel='stylesheet' type='text/css'/>
+<link href='https://fonts.googleapis.com/css?family=Domine%3A400%2C700&amp;ver=4.2.4' id='default_para_font-css' media='all' rel='stylesheet' type='text/css'/>
+<link href='https://fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C400italic&amp;ver=4.2.4' id='default_body_font-css' media='all' rel='stylesheet' type='text/css'/>
+<link href="https://fonts.googleapis.com/css?family=Droid+Serif|IM+Fell+DW+Pica" rel="stylesheet" />
 
  <b:skin><![CDATA[
 	
@@ -126,7 +127,7 @@ Url     : www.themexpose.com
 <Variable name="body.background.color" description="Outer Background Color" type="color" default="#ffffff" value="#ffffff"/>
 </Group>
 <Group description="Blog Header" selector="">
-<Variable name="header.text.font" description="Header Font" type="font" default="55px Raleway"  value="55px Raleway"/>
+<Variable name="header.text.font" description="Header Font" type="font" default="55px IM Fell DW Pica"  value="55px IM Fell DW Pica"/>
 <Variable name="header.text.color" description="Header Color" type="color" default="#777777"  value="#777777"/>
 </Group>
 <Group description="Post Titles" selector="">
@@ -245,8 +246,8 @@ body {
 }
 
 p {
-	font-size:16px;
-	line-height:26px;
+	font-size:1.25em;
+	line-height:2em;
 }
 
 a {
@@ -463,7 +464,7 @@ padding: 60px 0;
 text-align: center;
 font-weight: 300;
 color:$(header.text.color);
-    text-transform: uppercase;
+
 }
 
 /********************************/
@@ -683,6 +684,9 @@ min-width:100%;
 	/*** Post Entry ***/
 	.post-entry {
 		  text-align: justify;
+		  font-family:"Droid Serif"!important;
+		  font-size: 1.25em;
+		  line-height:2em;
 	}
 	
 	.post-entry img {
@@ -692,8 +696,8 @@ min-width:100%;
 	
 	.post-entry p {
 		margin-bottom:20px;
-  text-align: justify;
-text-align: center;
+		text-align: left;
+		font-family:"Droid Serif"!important;
 	}
 	
 	.post-entry a.more-link {
@@ -728,24 +732,31 @@ text-align: center;
 	.post-entry h1, .post-entry h2, .post-entry h3, .post-entry h4, .post-entry h5, .post-entry h6 {
 		color:#000;
 		font-weight:700;
+		font-family:"Droid Serif"!important;
 	}
 	.post-entry h1 {
 		font-size:30px;
+		font-family:"Droid Serif"!important;
 	}
 	.post-entry h2 {
 		font-size:27px;
+		font-family:"Droid Serif"!important;
 	}
 	.post-entry h3 {
 		font-size:24px;
+		font-family:"Droid Serif"!important;
 	}
 	.post-entry h4 {
 		font-size:20px;
+		font-family:"Droid Serif"!important;
 	}
 	.post-entry h5 {
 		font-size:18px;
+		font-family:"Droid Serif"!important;
 	}
 	.post-entry h6 {
 		font-size:16px;
+		font-family:"Droid Serif"!important;
 	}
 	.post-entry hr {
 		border:0;
@@ -4987,10 +4998,12 @@ $(document).ready(function() {
 							</h2>
 								
 						</div>
-						<div expr:id='&quot;summary&quot; + data:post.id' style='display:none;'>
+						<div class="post-entry" expr:id='&quot;summary&quot; + data:post.id' style=''>
 							<data:post.body/>
 						</div>
-						<script type='text/javascript'>createSummaryAndThumb(&quot;summary<data:post.id/>&quot;,&quot;<data:post.title/>&quot;,&quot;<data:post.url/>&quot;,&quot;<data:post.timestamp/>&quot;,&quot;<data:post.numComments/>&quot;,&quot;<b:loop values='data:post.labels' var='label'><a expr:href='data:label.url + &quot;?max-results=6&quot;' rel='tag'><data:label.name/></a><b:if cond='data:label.isLast != &quot;true&quot;'> ,</b:if></b:loop>&quot;);</script>  
+						<!--
+						<script type='text/javascript'>createSummaryAndThumb(&quot;summary<data:post.id/>&quot;,&quot;<data:post.title/>&quot;,&quot;<data:post.url/>&quot;,&quot;<data:post.timestamp/>&quot;,&quot;<data:post.numComments/>&quot;,&quot;<b:loop values='data:post.labels' var='label'><a expr:href='data:label.url + &quot;?max-results=6&quot;' rel='tag'><data:label.name/></a><b:if cond='data:label.isLast != &quot;true&quot;'> ,</b:if></b:loop>&quot;);</script>
+						-->
 
 
 <div class='post-meta'>
